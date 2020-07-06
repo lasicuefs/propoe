@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="778.0" prefWidth="1365.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.controller.FXMLPrincipalController">
+    <MenuBar prefWidth="1280.0" VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="Arquivo">
+            <MenuItem mnemonicParsing="false" onAction="#actionAbrirArquivo" text="Abrir" />
+            <MenuItem fx:id="menuSalvarPoema" disable="true" mnemonicParsing="false" onAction="#actionSalvarPoema" text="Salvar Poema" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#actionSair" text="Sair" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Extras">
+            <MenuItem fx:id="menuGraficos" disable="true" mnemonicParsing="false" onAction="#actionExibirGraficos" text="Graficos" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="menuExibirAvaliacao" disable="true" mnemonicParsing="false" onAction="#actionExibirAvalicao" text="Avaliação do Poema" />
+        </Menu>
+    </MenuBar>
+    <GridPane VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="37" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="20" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="43" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <VBox.margin>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+        </VBox.margin>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" percentHeight="40.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <VBox>
+                <AnchorPane>
+                    <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" text="Sentenças Versificadas" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+                <AnchorPane VBox.vgrow="ALWAYS">
+                    <TextArea fx:id="taSentencasVersificadas" editable="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                </AnchorPane>
+            </VBox>
+            <VBox GridPane.rowIndex="1">
+                <AnchorPane>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Padrões Rítmicos de Sentenças" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+                <HBox spacing="10">
+                    <AnchorPane>
+                        <Label text="Filtrar por Metrica" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </AnchorPane>
+                    <AnchorPane HBox.hgrow="ALWAYS">
+                        <ComboBox fx:id="cbFiltroSentenas" disable="true" onAction="#actionComboBoxFiltroSentenca" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </AnchorPane>
+                </HBox>
+                <AnchorPane VBox.vgrow="ALWAYS">
+                    <HBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                        <AnchorPane>
+                            <TableView fx:id="tvSilabas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.rowIndex="1">
+                                <columns>
+                                    <TableColumn prefWidth="75.0" text="C1" />
+                                    <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                            </TableView>
+                        </AnchorPane>
+                        <AnchorPane>
+                            <TableView fx:id="tvRitimo" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <columns>
+                                    <TableColumn prefWidth="75.0" text="C1" />
+                                    <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                            </TableView>
+                        </AnchorPane>
+                    </HBox>
+                </AnchorPane>
+            </VBox>
+        </GridPane>
+        <VBox GridPane.columnIndex="1">
+            <padding>
+                <Insets bottom="12.0" left="12.0" right="12.0" />
+            </padding>
+            <AnchorPane>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="1.0" prefHeight="26.0" prefWidth="248.0" text="Parâmetros" textAlignment="CENTER" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+            </AnchorPane>
+            <Label text="Tipo Rima" />
+            <AnchorPane>
+                <ComboBox fx:id="cbRima" disable="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
+            <Label text="Métrica" />
+            <AnchorPane>
+                <ComboBox fx:id="cbMetrica" disable="true" onAction="#actionPopularComboBoxSilabas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
+            <!--Combobox estrofe e versos-->
+            <HBox prefHeight="50" spacing="10">
+                <AnchorPane HBox.hgrow="ALWAYS">
+                    <VBox prefHeight="60" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label text="Estrofes" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane>
+                            <ComboBox fx:id="cbQtEstrofes" disable="true" onAction="#actionPopularComboBoxSilabas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        </AnchorPane>
+                    </VBox>
+                </AnchorPane>
+                <AnchorPane HBox.hgrow="ALWAYS">
+                    <VBox prefHeight="60" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label text="Versos" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane>
+                            <ComboBox fx:id="cbQtVersos" disable="true" onAction="#actionPopularComboBoxSilabas" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        </AnchorPane>
+                    </VBox>
+                </AnchorPane>
+            </HBox>
+            <AnchorPane>
+                <CheckBox fx:id="cbUsaQuatroSilabas" onAction="#mudarParaQuatroSilabas" text="Usar 4 sílabas" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0" />
+            </AnchorPane>
+            <!--Combo Silabas 1 e 2-->
+            <HBox prefHeight="50" spacing="10">
+                <AnchorPane HBox.hgrow="ALWAYS">
+                    <VBox prefHeight="60" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label text="Silaba 1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane>
+                            <ComboBox fx:id="cbSilaba1" disable="true" onAction="#actionEscolheSilaba1" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        </AnchorPane>
+                    </VBox>
+                </AnchorPane>
+                <AnchorPane HBox.hgrow="ALWAYS">
+                    <VBox prefHeight="60" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label text="Silaba 2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane>
+                            <ComboBox fx:id="cbSilaba2" disable="true" onAction="#actionEscolheSilaba2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        </AnchorPane>
+                    </VBox>
+                </AnchorPane>
+            </HBox>
+            <!--Combo silaba 3 e 4-->
+            <HBox fx:id="hbSilaba3e4" disable="true" prefHeight="50" spacing="10">
+                <AnchorPane HBox.hgrow="ALWAYS">
+                    <VBox prefHeight="60" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label text="Silaba 3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane>
+                            <ComboBox fx:id="cbSilaba3" disable="true" onAction="#actionEscolheSilaba3" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        </AnchorPane>
+                    </VBox>
+                </AnchorPane>
+                <AnchorPane HBox.hgrow="ALWAYS">
+                    <VBox prefHeight="60" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <Label text="Silaba 4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <AnchorPane>
+                            <ComboBox fx:id="cbSilaba4" disable="true" onAction="#actionEscolheSilaba4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        </AnchorPane>
+                    </VBox>
+                </AnchorPane>
+            </HBox>
+            <Label text="Similiaridade" />
+            <AnchorPane>
+                <ComboBox fx:id="cbSimiliaridade" disable="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
+            <Label text="Comparação de Versos" />
+            <AnchorPane>
+                <ComboBox fx:id="cbCompararEntreVersos" disable="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
+            <Label text="Segmento/Sentença" />
+            <AnchorPane>
+                <ComboBox fx:id="cbSegmentoSentenca" disable="true" layoutY="1.0" onAction="#exibirPoema" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+            </AnchorPane>
+            <AnchorPane>
+                <Button fx:id="btGerarPoema" disable="true" layoutX="20.0" layoutY="11.0" onAction="#actionGerarPoema" text="Gerar Poema" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="11.0" />
+            </AnchorPane>
+            <VBox fx:id="vbScorePoema" prefHeight="201.0" prefWidth="230.0">
+                <AnchorPane prefHeight="22.0" prefWidth="248.0">
+                    <Label alignment="CENTER" contentDisplay="CENTER" layoutY="10.0" text="Escore do Poema" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+                <AnchorPane>
+                    <HBox spacing="5">
+                        <Label text="Fonética: " />
+                        <Label fx:id="lbScoreFonetica" />
+                    </HBox>
+                </AnchorPane>
+                <AnchorPane>
+                    <HBox spacing="5">
+                        <Label text="Tônicas similares: " />
+                        <Label fx:id="lbScoreTonicaSimilar" />
+                    </HBox>
+                </AnchorPane>
+                <AnchorPane>
+                    <HBox spacing="5">
+                        <Label text="Esquema rítmico: " />
+                        <Label fx:id="lbScoreEsquemaRitimico" />
+                    </HBox>
+                </AnchorPane>
+                <AnchorPane>
+                    <HBox spacing="5">
+                        <Label text="Acentuacao: " />
+                        <Label fx:id="lbScoreAcentuacao" />
+                    </HBox>
+                </AnchorPane>
+                <AnchorPane>
+                    <Label alignment="CENTER" contentDisplay="CENTER" text="Escore Total" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+                <AnchorPane>
+                    <Label fx:id="lbScoreTotal" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="RED" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                </AnchorPane>
+            </VBox>
+        </VBox>
+        <VBox GridPane.columnIndex="2">
+            <AnchorPane>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" text="Poema" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+            </AnchorPane>
+            <AnchorPane VBox.vgrow="ALWAYS">
+                <TextArea fx:id="taPoema" editable="false" prefHeight="651.0" prefWidth="547.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+            </AnchorPane>
+        </VBox>
+    </GridPane>
+</VBox>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+      prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="javafx.controller.FXMLGraficoController">
+    <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" spacing="40.0">
+        <VBox.margin>
+            <Insets/>
+        </VBox.margin>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+            <Label text="Tipo de Gráfico"/>
+            <ComboBox fx:id="cbTipoGrafico" prefWidth="200.0" promptText="Selecione um Tipo"/>
+        </VBox>
+        <VBox alignment="CENTER" prefWidth="200.0">
+            <Label text="Filtrar Métrica"/>
+            <ComboBox fx:id="cbFiltroMetrica" promptText="Selecione uma Métrica" prefWidth="200.0"/>
+        </VBox>
+        <AnchorPane>
+            <Button fx:id="btVisualizarGrafico" layoutY="37.0" mnemonicParsing="false"
+                    text="Visualizar grafico" onAction="#actionVisualizarGrafico"/>
+        </AnchorPane>
+    </HBox>
+    <AnchorPane fx:id="content" VBox.vgrow="ALWAYS">
+
+    </AnchorPane>
+</VBox>

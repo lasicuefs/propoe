@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.controller.FXMLAvaliacaoController">
+    <GridPane hgap="12.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="65.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" percentWidth="35.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="433.0" minHeight="10.0" percentHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <padding>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+        </padding>
+        <VBox.margin>
+            <Insets />
+        </VBox.margin>
+        <VBox prefWidth="100.0" GridPane.columnIndex="1">
+            <AnchorPane>
+                <Label alignment="CENTER" text="Acentuação" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
+            <AnchorPane>
+                <Label fx:id="lbScoreAcentuacao" alignment="CENTER" text="Escore:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
+            <AnchorPane VBox.vgrow="ALWAYS">
+                <TextArea fx:id="taAcentuacao" editable="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
+        </VBox>
+        <VBox prefHeight="200.0" prefWidth="100.0">
+
+            <VBox VBox.vgrow="ALWAYS">
+                <AnchorPane>
+                    <Label alignment="CENTER" text="Fonética" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                </AnchorPane>
+                <AnchorPane>
+                    <Label fx:id="lbScoreFonetica" alignment="CENTER" text="Escore:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                </AnchorPane>
+                <TextArea fx:id="taFonetica" editable="false" VBox.vgrow="ALWAYS" />
+            </VBox>
+            <VBox VBox.vgrow="ALWAYS">
+                <AnchorPane>
+                    <Label alignment="CENTER" text="Posiçao de Tônica" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0" />
+                </AnchorPane>
+                <AnchorPane>
+                    <Label fx:id="lbScoreTonica" alignment="CENTER" text="Escore:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                </AnchorPane>
+                <AnchorPane VBox.vgrow="SOMETIMES">
+                    <TextArea fx:id="taTonica" editable="false" layoutX="-23.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                </AnchorPane>
+            </VBox>
+        </VBox>
+    </GridPane>
+</VBox>
