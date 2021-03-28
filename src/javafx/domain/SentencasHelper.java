@@ -38,9 +38,7 @@ public class SentencasHelper {
             //Corrige o bug do arquivo XML que vem com o número de silabas diferente da ultima silaba tônica
             sentenca.setSegmento(Utils.limparSentencas(sentenca.getSegmento()));
             sentenca.getEstruturaDeVesificacao().forEach(es -> {
-                es.setSentecaEscandida(Utils.limparSentencas(es.getSentecaEscandida()));
-                
-            sentenca.getEstruturaDeVesificacao().forEach(es -> {
+                es.setSentecaEscandida(Utils.limparSentencas(es.getSentecaEscandida()));            
                 Metrica metrica = Utils.obterMetricaDoVerso(es.getPosicaoDasTonicas());
                 String palavra = Utils.extrairUltimaPalavraDeSentenca(es.getSentecaEscandida());
                 Acentuacao acentuacao = Utils.obterAcentuacaoDaPalavra(palavra);
