@@ -41,7 +41,9 @@ public class EstruturaVersificacao {
     public String getSentecaEscandida() {
         return sentecaEscandida;
     }
-
+    public void setSentecaEscandida(String sentecaEscandida) {
+        this.sentecaEscandida = sentecaEscandida;
+    }
     public boolean isIsUsed() {
         return isUsed;
     }
