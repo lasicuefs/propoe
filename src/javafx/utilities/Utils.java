@@ -59,6 +59,9 @@ public abstract class Utils {
 
         return string.replaceAll("^[.,/#!$%^&*;:{}=\\-_`~()]*|[.,/#!$%^&*;:{}=\\-_`~()\\s]*$", "");
     }
+     public static String limparSentencas(String sentenca){
+        return sentenca.replaceAll("^[^A-Za-z]*|[^A-Za-z]*$", "");
+    }
 
     public static String reverterOrdermString(String string) {
         return new StringBuffer(string).reverse().toString();
