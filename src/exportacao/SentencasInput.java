@@ -42,7 +42,7 @@ public class SentencasInput {
     public void salvar(File caminho) {
         try {
             XStream xstream = new XStream(new DomDriver());
-            String string_jpanelEmXML = xstream.toXML(sentencas);// Passando os dados do JPanel Java para XML e salva em uma String
+            String string_jpanelEmXML = xstream.toXML(sentencas);
             OutputStream streamOut;
             if (!(caminho.exists())) {
                 caminho.createNewFile();
@@ -51,7 +51,7 @@ public class SentencasInput {
                 caminho.createNewFile();
             }
             streamOut = new FileOutputStream(caminho);
-            //XStream xstreamr = new XStream(new DomDriver());
+           
             xstream.toXML(sentencas, streamOut);
         } catch (FileNotFoundException exception) {
             System.out.println("FileNotFoundException: " + exception.getMessage());
@@ -65,7 +65,7 @@ public class SentencasInput {
     public void salvarComo(File caminho) {
         try {
             XStream xstream = new XStream(new DomDriver());
-            String string_jpanelEmXML = xstream.toXML(sentencas);// Passando os dados do JPanel Java para XML e salva em uma String
+            String string_jpanelEmXML = xstream.toXML(sentencas);
             File xmlMap = caminho;
             OutputStream streamOut;
             if (!(xmlMap.exists())) {
@@ -75,10 +75,10 @@ public class SentencasInput {
                 xmlMap.delete();
                 System.out.println("Caminho do arquivo: " + novoArquivo);
                 xmlMap = new File(novoArquivo);
-                // xmlMap.createNewFile();
+              
             }
             streamOut = new FileOutputStream(xmlMap);
-            //XStream xstreamr = new XStream(new DomDriver());
+           
             xstream.toXML(sentencas, streamOut);
         } catch (FileNotFoundException exception) {
             System.out.println("FileNotFoundException: " + exception.getMessage());
