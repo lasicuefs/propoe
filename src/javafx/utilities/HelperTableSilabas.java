@@ -10,10 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.Arrays;
 
-/**
- *
- * @author Ana Cleyge
- */
 public class HelperTableSilabas {
 
     private TableView<ModelFrequencia> tableViewSilabas;
@@ -53,9 +49,6 @@ public class HelperTableSilabas {
         }
     }
 
-    /**
-     * @param tableViewSilabas the tableViewSilabas to set
-     */
     public void setTableViewSilabas(TableView<ModelFrequencia> tableViewSilabas) {
         this.tableViewSilabas = tableViewSilabas;
     }
