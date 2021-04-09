@@ -25,7 +25,6 @@ public class AvaliacaoApp extends Application {
         stage.setTitle("Avaliação do Poema");
         stage.show();
         stage.centerOnScreen();
-        //stage.maximizedProperty();
     }
 
     public static void main(String[] args) {
