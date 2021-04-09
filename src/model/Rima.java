@@ -27,12 +27,7 @@ public enum Rima {
     public String getDescription() {
         return this.descricao;
     }
-
-    /**
-     * Obtém uma rima aleatória da lista de rimas
-     *
-     * @return {@link Rima}
-     */
+    
     public static Rima getRandom() {
         List<Rima> rimas = getAllSemMista();
         return rimas.get(Utils.random().nextInt(rimas.size()));
