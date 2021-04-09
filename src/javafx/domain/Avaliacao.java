@@ -30,11 +30,6 @@ public final class Avaliacao {
         return avaliacaoPosicaoTonica;
     }
 
-    /**
-     * Obtem a soma do score total
-     *
-     * @return double
-     */
     public double getScoreTotal() {
         return scoreTotal;
     }
