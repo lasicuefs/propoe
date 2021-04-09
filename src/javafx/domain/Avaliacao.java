@@ -17,30 +17,15 @@ public final class Avaliacao {
         avaliacaoPosicaoTonica = new AvaliacaoPosicaoTonicaHelper(poema);
         avaliacaoPosicaoTonica.setCompararEntreVersos(compararEntreVersos);
     }
-
-    /**
-     * Retorna a classe que realiza a avaliação de acentuação.
-     *
-     * @return AvaliacaoAcentuacaoHelper
-     */
+    
     public AvaliacaoAcentuacaoHelper getAvaliacaoAcentuacao() {
         return avaliacaoAcentuacao;
     }
 
-    /**
-     * Retorna a classe que realiza a avaliação fonetica.
-     *
-     * @return AvaliacaoFoneticaHelper
-     */
     public AvaliacaoFoneticaHelper getAvaliacaoFonetica() {
         return avaliacaoFonetica;
     }
-
-    /**
-     * Retorna a classe que realiza a avaliação de posicionamento de tônica e esquema ritimico.
-     *
-     * @return AvaliacaoPosicaoTonicaHelper
-     */
+ 
     public AvaliacaoPosicaoTonicaHelper getAvaliacaoPosicaoTonica() {
         return avaliacaoPosicaoTonica;
     }
@@ -54,45 +39,22 @@ public final class Avaliacao {
         return scoreTotal;
     }
 
-    /**
-     * Obtem o valor do score de fonetica.
-     *
-     * @return double
-     */
     public double getScoreFonetica() {
         return this.avaliacaoFonetica.getScore();
     }
 
-    /**
-     * Obtem o valor do score de tonica similares.
-     *
-     * @return double
-     */
     public double getScoreTonicaSimilares() {
         return this.avaliacaoPosicaoTonica.getScoreCoincidenciaDeSilabas();
     }
 
-    /**
-     * Obtem o valor do score de esquema rítimico.
-     *
-     * @return double
-     */
     public double getScoreEsquemaRitimico() {
         return this.avaliacaoPosicaoTonica.getScorePosicao();
     }
-
-    /**
-     * Obtem o valor do score de acentuação.
-     *
-     * @return double
-     */
+    
     public double getScoreAcentuacao() {
         return this.avaliacaoAcentuacao.getScore();
     }
-
-    /**
-     * Processa a avaliação do poema e calcula o somatório dos scores.
-     */
+    
     public void avaliarPoema() {
         avaliacaoPosicaoTonica.avaliar();
         avaliacaoFonetica.avalicaoFonetica();
