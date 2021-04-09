@@ -29,7 +29,6 @@ public class FXMLAvaliacaoController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Avaliacao avaliacao = AvaliacaoApp.getAvaliacao();
 
-        //Preenche a tabela de fonetica
         StringBuilder builderFonetica = new StringBuilder();
         avaliacao.getAvaliacaoFonetica()
                 .getResultado()
@@ -40,7 +39,6 @@ public class FXMLAvaliacaoController implements Initializable {
         taFonetica.setText(builderFonetica.toString());
         lbScoreFonetica.setText(String.format("Score: %.2f", avaliacao.getAvaliacaoFonetica().getScore()));
 
-        //Preenche a tabela de acentuação
         StringBuilder builderAcentuacao = new StringBuilder();
         avaliacao.getAvaliacaoAcentuacao()
                 .getResultado()
@@ -49,8 +47,7 @@ public class FXMLAvaliacaoController implements Initializable {
                         .append(acentuacao.getAcentuacao()).append("\n"));
         taAcentuacao.setText(builderAcentuacao.toString());
         lbScoreAcentuacao.setText(String.format("Score: %.2f", avaliacao.getAvaliacaoAcentuacao().getScore()));
-
-        //Preenche a tabela de posição de Tônica
+       
         StringBuilder buider = new StringBuilder();
         avaliacao.getAvaliacaoPosicaoTonica()
                 .getResultado()
