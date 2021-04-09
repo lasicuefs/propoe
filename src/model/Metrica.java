@@ -39,7 +39,6 @@ public enum Metrica {
 
     public static Metrica fromId(Integer id) {
 
-        //Se houver mais que 13 silabas a metrica é barbaro, caso contrário retorna pelo id
         if (id >= 13)
             return Metrica.BARBARO;
 
