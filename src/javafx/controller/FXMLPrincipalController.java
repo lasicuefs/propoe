@@ -89,12 +89,7 @@ public class FXMLPrincipalController implements Initializable {
         this.tableRitmos = new HelperTableRitmos(this.tvRitimo);
         this.tableRitmos.definirTabelaRitmo();
 
-//        this.abrirArquivo(new File("xml/CONFRONTOS.XML"));
     }
-
-    /**
-     * Método resposável por abrir um arquivo e popular os combobox e area de texto
-     */
     private void abrirArquivo(File file) {
         SentencasInput input = new SentencasInput(null);
         List<Sentenca> sentencas = input.ler(file);
@@ -107,7 +102,6 @@ public class FXMLPrincipalController implements Initializable {
         popularComboBoxFiltroSentencas();
         popularTabelaPadroesRitimicos(Metrica.TODAS);
 
-        //ao abrir o arquvivo habilita os combobox
         this.cbRima.setDisable(false);
         this.cbMetrica.setDisable(false);
         this.cbSilaba1.setDisable(false);
@@ -122,14 +116,10 @@ public class FXMLPrincipalController implements Initializable {
         this.cbSegmentoSentenca.setDisable(false);
         this.cbCompararEntreVersos.setDisable(false);
 
-        //habilita menus
         this.menuGraficos.setDisable(false);
     }
 
-    /**
-     * Preenche o combobox filtro de sentenaças com as metricas disponiveis no helper
-     */
-    private void popularComboBoxFiltroSentencas() {
+  private void popularComboBoxFiltroSentencas() {
         Platform.runLater(() -> {
             this.cbFiltroSentenas.getItems().clear();
             this.cbFiltroSentenas.getItems().addAll(this.helper.obterMetricas());
@@ -137,9 +127,6 @@ public class FXMLPrincipalController implements Initializable {
         });
     }
 
-    /**
-     * Preenche o combobox rima com as rimas disponiveis para utilização
-     */
     private void popularComboBoxRima() {
         Platform.runLater(() -> {
             this.cbRima.getItems().clear();
@@ -148,9 +135,6 @@ public class FXMLPrincipalController implements Initializable {
         });
     }
 
-    /**
-     * Preenche o combobox metrica com as metricas disponibilizadas pelo helper
-     */
     private void pouplarComboBoxMetrica() {
         Platform.runLater(() -> {
             this.cbMetrica.getItems().clear();
@@ -158,18 +142,11 @@ public class FXMLPrincipalController implements Initializable {
             this.cbMetrica.getSelectionModel().selectFirst();
         });
     }
-
-    /**
-     * Exibe todas as sentenças versificadas, processadas pelo helper, na textArea taSentencasVersificadas
-     */
+    
     private void exibirSentencasVersificadas() {
         this.taSentencasVersificadas.setText(this.helper.mostrarSentencas());
     }
-
-    /***
-     * Carrega a tabela tableSilabas e tableRitimos com as sentenças silabicas processadas pelo helper
-     * @param metrica a metrica ser usada para obter as sentenças
-     * */
+    
     private void popularTabelaPadroesRitimicos(Metrica metrica) {
         this.tableSilabas.removerTodos();
         this.tableRitmos.removerTodos();
@@ -180,9 +157,6 @@ public class FXMLPrincipalController implements Initializable {
         sentencas.forEach((silaba, quantidade) -> this.tableSilabas.adicionarItem(silaba, quantidade));
     }
 
-    /***
-     * Preenche os itens do combobox silaba1 utilizando o auxilio da classe MostraSentençasHelper
-     **/
     @FXML
     public void actionPopularComboBoxSilabas() {
         //enquando todos os combobox estiverem escolhidos não preenche as silabas
@@ -208,10 +182,6 @@ public class FXMLPrincipalController implements Initializable {
         });
     }
 
-    /**
-     * Ação disparada ao abrir um arquivo para ser processado. Se o arquivo for selecionado com sucesso, chama o
-     * metodo abrirArquivo.
-     */
     @FXML
     public void actionAbrirArquivo() {
         JFileChooser abrir = new JFileChooser();
@@ -225,18 +195,12 @@ public class FXMLPrincipalController implements Initializable {
             abrirArquivo(file);
         }
     }
-
-    /**
-     * Ação disparada ao clicar no item do menu sair, a aplicação é finalizada.
-     */
+    
     @FXML
     public void actionSair() {
         MainApp.getStage().close();
     }
 
-    /**
-     * Ação disparada ao clicar no item do menu exibir avaliaçao. Abrirá uma nova janela com os dados da avaliação
-     */
     @FXML
     public void actionExibirAvalicao() throws IOException {
         AvaliacaoApp.setAvalicacao(avaliacao);
@@ -249,28 +213,19 @@ public class FXMLPrincipalController implements Initializable {
         new GraficoApp().start(new Stage());
     }
 
-    /**
-     * Ação disparada ao escolher um item no combobox filtro de sentença
-     */
     @FXML
     public void actionComboBoxFiltroSentenca() {
         Metrica metrica = this.cbFiltroSentenas.getSelectionModel().getSelectedItem();
         this.popularTabelaPadroesRitimicos(metrica);
     }
 
-    /**
-     * Ação disparada ao escolher um item no combobox silaba1
-     */
     @FXML
     public void actionEscolheSilaba1() {
         String itemSelecionado = this.cbSilaba1.getSelectionModel().getSelectedItem();
         String silaba = this.helper.escolherSilaba(this.cbSilaba1.getItems(), itemSelecionado);
         Platform.runLater(() -> this.cbSilaba1.getSelectionModel().select(silaba));
     }
-
-    /**
-     * Ação disparada ao escolher um item no combobox silaba2
-     */
+    
     @FXML
     public void actionEscolheSilaba2() {
         String itemSelecionado = this.cbSilaba2.getSelectionModel().getSelectedItem();
@@ -278,9 +233,6 @@ public class FXMLPrincipalController implements Initializable {
         Platform.runLater(() -> this.cbSilaba2.getSelectionModel().select(silaba));
     }
 
-    /**
-     * Ação disparada ao escolher um item no combobox silaba3
-     */
     @FXML
     public void actionEscolheSilaba3() {
         String itemSelecionado = this.cbSilaba3.getSelectionModel().getSelectedItem();
@@ -288,9 +240,6 @@ public class FXMLPrincipalController implements Initializable {
         Platform.runLater(() -> this.cbSilaba3.getSelectionModel().select(silaba));
     }
 
-    /**
-     * Ação disparada ao escolher um item no combobox silaba4
-     */
     @FXML
     public void actionEscolheSilaba4() {
         String itemSelecionado = this.cbSilaba4.getSelectionModel().getSelectedItem();
@@ -298,11 +247,6 @@ public class FXMLPrincipalController implements Initializable {
         Platform.runLater(() -> this.cbSilaba4.getSelectionModel().select(silaba));
     }
 
-    /**
-     * Ação disparada ao clicar no botão gerar o poema.
-     * Gera o poema em uma thread separada da tread principal, para que não trave a interface enquanto estiver
-     * realizado o processamento do poema.
-     */
     @FXML
     public void actionGerarPoema() {
         this.taPoema.clear();
@@ -436,13 +380,10 @@ public class FXMLPrincipalController implements Initializable {
                 StringBuilder bufferSaida = new StringBuilder();
 
                 if (!existeArquivo) {
-                    //se for um novo arquivo, adiciona a extensão do arquivo
                     file = new File(file.getPath().concat(".txt"));
-                } else {
-                    //se não for um novo arquivo adiciona um separador de poemas
+                } else {                 
                     bufferSaida.append("----------------------------").append(lineSeparator).append(lineSeparator);
-                }
-                //altera a quebra de linha pelo caracter new line utilizado no sistema operacional
+                }                
                 bufferSaida.append(taPoema.getText().replaceAll("\n", lineSeparator));
                 BufferedWriter bf = new BufferedWriter(new FileWriter(file, existeArquivo));
                 bf.append(bufferSaida.toString());
@@ -456,10 +397,6 @@ public class FXMLPrincipalController implements Initializable {
 
     }
 
-    /***
-     * Exibe o poema na área de texto
-     * Se exibirSegmento for true, a exibição do poema será pelo segmento, caso contrário, será pela sentença escandida
-     * */
     @FXML
     private void exibirPoema() {
         if (this.poema != null) {
@@ -483,21 +420,10 @@ public class FXMLPrincipalController implements Initializable {
         }
     }
 
-    /**
-     * Verifica se a comparacao escolhida pelo usuário é entre versos ou não.
-     *
-     * @return true se é para usar comparação entre versos, false caso não sejá para utilizar.
-     */
     private boolean isComparacaoEntreVersos() {
         return cbCompararEntreVersos.getSelectionModel().getSelectedItem().equals("Entre versos");
     }
-
-    /**
-     * Verifica se o usuario escolheu 4 silabas ou somente 2.
-     * Para usar 4 silabas o usuário deve preencher os 4 combobox de silabas, caso contrário o sistema só utiliza 2
-     *
-     * @return true se o usuario escolheu 4, false se ele escolheu 2
-     */
+  
     private boolean usaQuatroSilabas() {
         return this.cbUsaQuatroSilabas.isSelected();
     }
