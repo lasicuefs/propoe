@@ -72,10 +72,7 @@ public class FXMLGraficoController implements Initializable {
         String tipo = cbTipoGrafico.getSelectionModel().getSelectedItem();
         Metrica metrica = cbFiltroMetrica.getSelectionModel().getSelectedItem();
 
-        //previne clicar no botão sem escolher um tipo
         if (tipo == null || metrica == null) return;
-
-//        grafico.getData().clear();
 
         if (tipo.equals("Sentenças")) {
             Map<String, Integer> sentencasSilabas = helper.getSentencasSilabas(metrica);
