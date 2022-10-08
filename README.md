@@ -5,6 +5,8 @@ O sistema PROPOE (Prose to Poem) é o primeiro sistema para geração de poemas 
 
 O sistema (PROPOE) realiza combinações das sentenças, e gera poemas baseados na otimização de critérios rítmicos e fonológicos. É aplicado um “algoritmo guloso” (greedy algorithm) no qual são consideradas normas rítmicas e rimas estabelecidas para o português. Em uma etapa final, é realizada uma avaliação automatizada, e atribuição de pontuação de acordo com a identificação de algum padrão considerado ideal em poemas com métricas regulares, relacionado a rima identificada nas palavras que compõem os versos, bem como o ritmo.
 
-Este repositório contém o código fonte do sistema. Em breve será disponibilizado uma versão executável.
+Este repositório contém o código fonte do sistema. 
+
+Confira versão executável em JAR (Java) em https://github.com/lasicuefs/propoe/releases.
 
 Veja mais sobre o PROPOE em https://propoetool.wordpress.com/
